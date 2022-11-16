@@ -28,5 +28,11 @@ RSpec.describe Statement do
       expect(@statement.column_formatter('deposit', 200)).to eq " 200.00 || "
       expect(@statement.column_formatter('withdrawal', 100)).to eq " || 100.00 "
     end
+
+    it 'can print a transaction to the specification format' do
+      @statement.balance = 1000
+
+      expect(@statement.transact('deposit', 1000)).to eq ["15/11/2022 || 1000.00 || || 1000.00"]
+    end
   end
 end

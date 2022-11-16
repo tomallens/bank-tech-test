@@ -18,4 +18,8 @@ class Statement
 
     transaction_type == 'deposit' ? " #{transaction} || " : " || #{transaction} "
   end
+
+  def transact(transaction_type, amount)
+    @statement << "#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % balance}"
+  end
 end
