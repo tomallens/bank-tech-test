@@ -22,7 +22,7 @@ RSpec.describe Statement do
     expect(@statement.date_formatter).to eq "15/11/2022"
   end
 
-  context 'when given a transaction' do
+  context 'when given a transaction:' do
     it 'formats the credit/debit columns correctly' do
 
       expect(@statement.column_formatter('deposit', 200)).to eq " 200.00 || "

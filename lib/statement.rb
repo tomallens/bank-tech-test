@@ -14,12 +14,12 @@ class Statement
   end
 
   def column_formatter(transaction_type, amount)
-    transaction = '%.2f' % amount
+    amount_float = '%.2f' % amount
 
-    transaction_type == 'deposit' ? " #{transaction} || " : " || #{transaction} "
+    transaction_type == 'deposit' ? " #{amount_float} || " : " || #{amount_float} "
   end
 
   def transact(transaction_type, amount)
-    @statement << "#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % balance}"
+    @statement << "#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % @balance}"
   end
 end
