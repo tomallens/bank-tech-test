@@ -10,16 +10,18 @@ class App
   end
 
   def print_statement
-    "#{@statement.print_header}#{@statement.statement.join('\n')}"
+    "#{@statement.print_header}#{@statement.statement.join("\n")}"
   end
 
   def deposit(money)
     @balance.add(money)
+    @statement.balance = @balance.moneys
     @statement.transact('deposit', money)
   end
 
   def withdraw(money)
-    @balance.add(money)
+    @balance.subtract(money)
+    @statement.balance = @balance.moneys
     @statement.transact('withdrawal', money)
   end
 end

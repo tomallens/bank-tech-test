@@ -1,3 +1,5 @@
+require_relative './balance.rb'
+
 class Statement
   attr_accessor :statement, :balance
   def initialize(balance)
