@@ -14,7 +14,7 @@ RSpec.describe Statement do
 
   it 'should print the header' do
 
-    expect(@statement.print_header).to eq "date || credit || debit || balance"
+    expect(@statement.print_header).to eq "date || credit || debit || balance\n"
   end
 
   it 'formats the date into dd/mm/yyyy' do
@@ -30,9 +30,9 @@ RSpec.describe Statement do
     end
 
     it 'can print a transaction to the specification format' do
-      @statement.balance = 1000
+      @statement.balance = 0
 
-      expect(@statement.transact('deposit', 1000)).to eq ["15/11/2022 || 1000.00 || || 1000.00"]
+      expect(@statement.transact('deposit', 1000)).to eq ["15/11/2022 || 1000.00 || || 0.00"]
     end
   end
 end

@@ -17,4 +17,11 @@ RSpec.describe App do
       expect(@app.statement).to be
     end
   end
+
+  context 'with no transactions logged' do
+    it '#print_statement displays the header' do
+    
+    expect(@app.print_statement).to eq "date || credit || debit || balance\n"
+    end
+  end
 end

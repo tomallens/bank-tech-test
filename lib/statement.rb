@@ -6,7 +6,7 @@ class Statement
   end
 
   def print_header
-    "date || credit || debit || balance"
+    "date || credit || debit || balance\n"
   end
 
   def date_formatter
@@ -20,6 +20,6 @@ class Statement
   end
 
   def transact(transaction_type, amount)
-    @statement << "#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % @balance}"
+    @statement.unshift("#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % @balance}")
   end
 end
