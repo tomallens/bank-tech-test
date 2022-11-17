@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # gem "rails"
 
-gem "rspec", "~> 3.12"
+gem 'rspec', '~> 3.12'
 
-gem "rubocop", "~> 1.39"
+gem 'rubocop', '~> 1.39'
 
-gem "simplecov", "~> 0.21.2"
+gem 'simplecov', '~> 0.21.2'
+
+gem "simplecov-console", "~> 0.9.1"

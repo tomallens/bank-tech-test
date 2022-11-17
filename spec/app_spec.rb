@@ -1,8 +1,7 @@
-require_relative '../lib/app.rb'
+require_relative '../lib/app'
 
 RSpec.describe App do
-
-  before(:each) do 
+  before(:each) do
     reset_app
   end
 
@@ -12,7 +11,6 @@ RSpec.describe App do
 
   context 'on Build:' do
     it 'instantiates a Statement containing a Balance' do
-      
       expect(@app.balance).to be
       expect(@app.statement).to be
     end
@@ -20,8 +18,7 @@ RSpec.describe App do
 
   context 'with no transactions logged' do
     it '#print_statement displays the header' do
-    
-    expect(@app.print_statement).to eq "date || credit || debit || balance\n"
+      expect(@app.print_statement).to eq "date || credit || debit || balance\n"
     end
   end
 end

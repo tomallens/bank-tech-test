@@ -1,7 +1,8 @@
-require_relative './balance.rb'
+require_relative './balance'
 
 class Statement
   attr_accessor :statement, :balance
+
   def initialize(balance)
     @statement = []
     @balance = balance
@@ -22,6 +23,7 @@ class Statement
   end
 
   def transact(transaction_type, amount)
-    @statement.unshift("#{date_formatter} ||#{column_formatter(transaction_type, amount)}|| #{'%.2f' % @balance}")
+    @statement.unshift("#{date_formatter} ||#{column_formatter(transaction_type,
+                                                               amount)}|| #{format('%.2f', @balance)}")
   end
 end

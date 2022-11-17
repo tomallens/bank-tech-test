@@ -1,10 +1,9 @@
-require_relative '../lib/balance.rb'
+require_relative '../lib/balance'
 require 'date'
 RSpec.describe 'The application should,' do
-
-  before(:each) do 
+  before(:each) do
     reset_app
-    allow(Date).to receive(:today).and_return Date.new(2022,11,15)
+    allow(Date).to receive(:today).and_return Date.new(2022, 11, 15)
   end
 
   def reset_app
@@ -13,7 +12,6 @@ RSpec.describe 'The application should,' do
 
   context 'with no transactions logged' do
     it '#print_statement displays the header' do
-      
       expect(@app.print_statement).to eq "date || credit || debit || balance\n"
     end
 

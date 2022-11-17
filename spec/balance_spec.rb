@@ -1,8 +1,7 @@
-require_relative '../lib/balance.rb'
+require_relative '../lib/balance'
 
 RSpec.describe Balance do
-
-  before(:each) do 
+  before(:each) do
     reset_balance
   end
 
@@ -12,7 +11,6 @@ RSpec.describe Balance do
 
   context 'On build:' do
     it 'should return a balance of 0' do
-
       expect(@balance.moneys).to eq 0
     end
   end
@@ -25,6 +23,6 @@ RSpec.describe Balance do
   it 'subtracts from balance' do
     @balance.subtract(500)
 
-    expect(@balance.moneys).to eq -500
+    expect(@balance.moneys).to eq(-500)
   end
 end

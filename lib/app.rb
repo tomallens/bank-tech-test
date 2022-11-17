@@ -1,12 +1,12 @@
-require_relative './balance.rb'
-require_relative './statement.rb'
+require_relative './balance'
+require_relative './statement'
 
-class App 
+class App
   attr_accessor :statement, :balance
+
   def initialize
     @balance = Balance.new
     @statement = Statement.new(0)
-
   end
 
   def print_statement
@@ -25,4 +25,3 @@ class App
     @statement.transact('withdrawal', money)
   end
 end
-
