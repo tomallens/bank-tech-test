@@ -1,29 +1,9 @@
 # Bank tech test
 
-Today, you'll practice doing a tech test.
+## Functionality
 
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
-
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
-
-## Specification
-
-### Requirements
-
-* You should be able to interact with your code via a REPL like IRB or Node.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2023  
-**And** a deposit of 2000 on 13-01-2023  
-**And** a withdrawal of 500 on 14-01-2023  
-**When** she prints her bank statement  
-**Then** she would see
+- Deposit/Withdraw money
+- Print Statement with date of transaction and balance, eg.
 
 ```
 date || credit || debit || balance
@@ -31,3 +11,43 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
+## Setup
+
+```
+# This assumes you have Ruby & RVM installed. If you don't, visit:
+# https://rvm.io/ to install RVM.
+
+; cd bank-tech-test
+; rvm get stable
+; rvm use ruby --latest --install --default
+; bundle install
+```
+
+## Testing
+
+```
+; rspec
+```
+
+## Usage
+
+You can now use 
+```
+; irb
+```
+to use the application from the home directory - all files should be loaded by default.
+
+```
+> App.deposit(10) # deposit
+> App.withdraw(50) # withdraw (overdrawing is valid)
+> App.print_statememt # prints the statement
+```
+
+## Thoughts
+
+It may or may not be worth splitting the text formatting aspects of the Statement class into a dedicated Formatter, given that the project did not demand a proper I/O.
+
+Further work needed is robust error handling, problably warranting a separate class and tighter control/elimination of floats.
+
+The App class should be able to be more thoroughly mocked, although I'm happy that I have total test coverage.
